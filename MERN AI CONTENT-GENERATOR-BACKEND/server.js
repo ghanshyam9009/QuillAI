@@ -103,7 +103,6 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-app.use(cors(corsOptions));
 //----Routes-----
 app.use("/api/v1/users", usersRouter);
 app.use("/api/v1/openai", openAIRouter);
