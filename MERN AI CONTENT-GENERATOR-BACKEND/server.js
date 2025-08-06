@@ -98,10 +98,11 @@ cron.schedule("0 0 1 * * *", async () => {
 app.use(express.json()); //pass incoming json data
 app.use(cookieParser()); //pass the cookie automatically
 const corsOptions = {
-  // origin: "http://localhost:3000",
   origin: "*",
-  credentials: true,
+  credentials: false, // `credentials: true` + origin "*" = ⚠️ CORS error
 };
+app.use(cors(corsOptions));
+
 app.use(cors(corsOptions));
 //----Routes-----
 app.use("/api/v1/users", usersRouter);
